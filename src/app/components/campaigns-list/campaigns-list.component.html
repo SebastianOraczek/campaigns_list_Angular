@@ -1,0 +1,25 @@
+<main>
+    <h1>All Campaigns</h1>
+
+    <section>
+        <div>
+            <input type="text" value={{name}} (change)="handleName($event)">
+        </div>
+        <div>
+            <input type="text" value={{town}} (change)="handleTown($event)">
+        </div>
+        <div>
+            <input type="number" value={{campaignFund}} (change)="handlecampaignFund($event)">
+        </div>
+        <div>
+            <button (click)="addCampaign(name, town, campaignFund)">Add Campaign</button>
+        </div>
+    </section>
+
+
+    <div *ngFor="let campaign of allCampaigns">
+        {{campaign.name}} {{campaign.town}} {{campaign.campaignFund}}$
+        <button class="btn btn-danger" (click)="removeCampaign(campaign.id)">Remove</button>
+    </div>
+
+</main>
