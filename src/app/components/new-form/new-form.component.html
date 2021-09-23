@@ -6,9 +6,37 @@
         <input type="text" value={{town}} (change)="handleTown($event)">
     </div>
     <div>
+        <select>
+            <option selected value="Kraków">Kraków</option>
+            <option value="Wrocław">Wrocław</option>
+            <option value="Warszawa">Warszawa</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Madryt">Madryt</option>
+        </select>
+    </div>
+    <div>
         <input type="number" value={{campaignFund}} (change)="handleCampaignFund($event)">
     </div>
     <div>
-        <button (click)="addCampaign(name, town, campaignFund)">Add Campaign</button>
+        <input type="number" value={{bidAmount}} (change)="handleBidAmount($event)">
+    </div>
+    <div>
+        <input type="number" value={{radius}} (change)="handleRadius($event)">
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="{{status}}" (change)="handleStatus($event)">
+        <label class="form-check-label" for="flexCheckDefault">
+            Status
+        </label>
+    </div>
+    <div class="form-floating">
+        <textarea class="form-control" id="keywords" value={{keywords}} (change)="handleKeywords($event)"></textarea>
+        <label for="keywords">Keywords:</label>
+    </div>
+    <div>
+        <button (click)="addCampaign(name, campaignFund, town, bidAmount, radius, status, keywords)">
+            Add Campaign
+        </button>
+        <button (click)="isFormActiveFalse.emit()">Back</button>
     </div>
 </section>

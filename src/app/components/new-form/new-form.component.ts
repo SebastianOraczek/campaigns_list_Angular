@@ -13,6 +13,10 @@ export class NewFormComponent {
   name: string = "";
   town: string = "";
   campaignFund: number = 0;
+  bidAmount: number = 0;
+  radius: number = 0;
+  status: boolean = false;
+  keywords: string = "";
 
   // Taking data from inputs
   handleName(event: any) {
@@ -24,9 +28,25 @@ export class NewFormComponent {
   handleCampaignFund(event: any) {
     this.campaignFund = parseInt(event.target.value);
   };
+  handleBidAmount(event: any) {
+    this.bidAmount = parseInt(event.target.value);
+  };
+  handleRadius(event: any) {
+    this.radius = parseInt(event.target.value);
+  };
+  handleStatus(event: any) {
+    this.status = true;
+  };
+  handleKeywords(event: any) {
+    this.keywords = event.target.value;
+  };
 
-  addCampaign(name: string, town: string, campaignFund: number) {
-    this.allCampaigns.push({ id: uuidv4(), name, campaignFund, town, });
+
+  addCampaign(
+    name: string, campaignFund: number, town: string,
+    bidAmount: number, radius: number, status: boolean, keywords: string
+  ) {
+    this.allCampaigns.push({ id: uuidv4(), name, campaignFund, town, bidAmount, radius, status, keywords });
     window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));
 
     this.name = "";

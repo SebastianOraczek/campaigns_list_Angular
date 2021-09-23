@@ -3,4 +3,8 @@ export interface CampaignInterface {
     name: string,
     town: string,
     campaignFund: number;
+    bidAmount: number;
+    radius: number;
+    status: boolean;
+    keywords: string;
 }

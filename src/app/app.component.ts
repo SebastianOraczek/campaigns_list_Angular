@@ -17,54 +17,16 @@ export class AppComponent {
     console.log(this.allCampaigns)
   };
 
+  // Toggle form
+  isFormActiveTrue() {
+    this.isFormActive = true;
+  };
+  isFormActiveFalse() {
+    this.isFormActive = false;
+  };
+
   removeCampaign(id: string): void {
     this.allCampaigns = this.allCampaigns.filter(campaign => campaign.id !== id);
     window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));
   };
-
-  isFormActiveTrue() {
-    this.isFormActive = true;
-  };
-
-  isFormActiveFalse() {
-    this.isFormActive = false;
-  };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // initialCampaigns = [
-  //   {
-  //     id: "1",
-  //     name: "First Campaign",
-  //     campaignFund: 10000,
-  //     town: "Kraków",
-  //     // radius: 10,
-  //     // status: false,
-  //     // bidAmount: 100,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Second Campaign",
-  //     campaignFund: 20000,
-  //     town: "Wrocław",
-  //     // radius: 20,
-  //     // status: true,
-  //     // bidAmount: 200,
-  //   }
-  // ];
