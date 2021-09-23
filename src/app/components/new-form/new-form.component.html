@@ -1,0 +1,14 @@
+<section>
+    <div>
+        <input type="text" value={{name}} (change)="handleName($event)">
+    </div>
+    <div>
+        <input type="text" value={{town}} (change)="handleTown($event)">
+    </div>
+    <div>
+        <input type="number" value={{campaignFund}} (change)="handleCampaignFund($event)">
+    </div>
+    <div>
+        <button (click)="addCampaign(name, town, campaignFund)">Add Campaign</button>
+    </div>
+</section>

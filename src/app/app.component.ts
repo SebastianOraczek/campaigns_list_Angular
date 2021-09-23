@@ -8,6 +8,45 @@ import { CampaignInterface } from './types/campaigns.interface';
 })
 export class AppComponent {
   allCampaigns: CampaignInterface[] = [];
+  isFormActive: boolean = false;
+
+  // Setting allCampaigns from localStorage
+  ngOnInit(): void {
+    const campaigns = JSON.parse(window.localStorage.campaigns);
+    if (campaigns) this.allCampaigns = [...campaigns];
+    console.log(this.allCampaigns)
+  };
+
+  removeCampaign(id: string): void {
+    this.allCampaigns = this.allCampaigns.filter(campaign => campaign.id !== id);
+    window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));
+  };
+
+  isFormActiveTrue() {
+    this.isFormActive = true;
+  };
+
+  isFormActiveFalse() {
+    this.isFormActive = false;
+  };
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // initialCampaigns = [
   //   {
@@ -29,14 +68,3 @@ export class AppComponent {
   //     // bidAmount: 200,
   //   }
   // ];
-
-  ngOnInit(): void {
-    const campaigns = JSON.parse(window.localStorage.campaigns);
-    if (campaigns) this.allCampaigns = [...campaigns];
-  };
-
-  removeCampaign(id: string): void {
-    this.allCampaigns = this.allCampaigns.filter(campaign => campaign.id !== id);
-    window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));
-  };
-};
