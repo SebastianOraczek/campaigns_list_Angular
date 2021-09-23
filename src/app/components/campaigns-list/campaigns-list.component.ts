@@ -10,4 +10,5 @@ export class CampaignsListComponent {
   @Input() allCampaigns: CampaignInterface[] = [];
   @Output() removeCampaign = new EventEmitter();
   @Output() isFormActiveTrue = new EventEmitter();
+  @Output() isEditFormActiveTrue = new EventEmitter();
 };

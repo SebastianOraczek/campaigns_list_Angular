@@ -14,10 +14,9 @@ export class AppComponent {
   ngOnInit(): void {
     const campaigns = JSON.parse(window.localStorage.campaigns);
     if (campaigns) this.allCampaigns = [...campaigns];
-    console.log(this.allCampaigns)
   };
 
-  // Toggle form
+  // Toggle new form
   isFormActiveTrue() {
     this.isFormActive = true;
   };

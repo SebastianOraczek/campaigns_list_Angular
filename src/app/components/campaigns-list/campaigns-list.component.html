@@ -1,10 +1,16 @@
-<main>
-    <h1>All Campaigns</h1>
-
-    <div *ngFor="let campaign of allCampaigns">
-        {{campaign.name}} {{campaign.town}} {{campaign.campaignFund}}$
-        <button class="btn btn-danger" (click)="removeCampaign.emit(campaign.id)">Remove</button>
+<section>
+    <h1 class="d-flex justify-content-center mb-5 mt-4 display-4">All Campaigns</h1>
+    <div class="row">
+        <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3">
+            <div *ngFor="let campaign of allCampaigns">
+                <div class="element mb-3">
+                    {{campaign.name}} {{campaign.town}} {{campaign.campaignFund}}$
+                    <button class="btn btn-danger" (click)="removeCampaign.emit(campaign.id)">Remove</button>
+                </div>
+            </div>
+            <div>
+                <button (click)="isFormActiveTrue.emit()">New Form</button>
+            </div>
+        </div>
     </div>
-
-    <button (click)="isFormActiveTrue.emit()">New Form</button>
-</main>
+</section>
