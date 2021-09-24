@@ -34,7 +34,7 @@ export class NewFormComponent {
   handleRadius(event: any) {
     this.radius = parseInt(event.target.value);
   };
-  handleStatus(event: any) {
+  handleStatus() {
     this.status = true;
   };
   handleKeywords(event: any) {
@@ -42,16 +42,9 @@ export class NewFormComponent {
   };
 
 
-  addCampaign(
-    name: string, campaignFund: number, town: string,
-    bidAmount: number, radius: number, status: boolean, keywords: string
-  ) {
+  addCampaign(name: string, campaignFund: number, town: string, bidAmount: number, radius: number, status: boolean, keywords: string) {
     this.allCampaigns.push({ id: uuidv4(), name, campaignFund, town, bidAmount, radius, status, keywords });
     window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));
-
-    this.name = "";
-    this.town = "";
-    this.campaignFund = 0;
 
     this.isFormActiveFalse.emit();
   };

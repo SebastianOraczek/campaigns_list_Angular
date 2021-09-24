@@ -54,11 +54,13 @@
                     <label for="keywords">Keywords:</label>
                 </div>
                 <div class="form-check mb-3">
-                    <input class="form-check-input" id="status" name="status" type="checkbox" value="{{status}}"
-                        (change)="handleStatus($event)">
-                    <label class="form-check-label" for="status">
-                        Is Sold
-                    </label>
+                    <div class="inside-check">
+                        <input class="form-check-input" id="status" name="status" type="checkbox" value="{{status}}"
+                            (change)="handleStatus()">
+                        <label class="form-check-label" for="status">
+                            Is Sold
+                        </label>
+                    </div>
                 </div>
                 <div>
                     <button (click)="isFormActiveFalse.emit()" class="btn btn-primary">Cancel</button>

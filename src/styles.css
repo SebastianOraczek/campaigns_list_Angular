@@ -7,3 +7,12 @@ h1 {
 p, li, label {
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
+
+.inside-check {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.inside-check > label {
+    margin-left: 0.5rem;
+}

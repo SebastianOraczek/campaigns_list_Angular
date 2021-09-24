@@ -1,7 +1,7 @@
 <section>
 
     <div *ngIf="editForm; else elseBlock">
-        <app-edit-form (editFormFalse)="editFormFalse()"></app-edit-form>
+        <app-edit-form (editFormFalse)="editFormFalse()" [allCampaigns]="allCampaigns"></app-edit-form>
     </div>
 
     <ng-template #elseBlock>
