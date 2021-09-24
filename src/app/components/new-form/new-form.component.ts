@@ -40,7 +40,6 @@ export class NewFormComponent {
     this.keywords = event.target.value;
   };
 
-
   addCampaign(name, campaignFund, town, bidAmount, radius, status, keywords) {
     this.allCampaigns.push({ id: uuidv4(), name, campaignFund, town, bidAmount, radius, status, keywords });
     window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));

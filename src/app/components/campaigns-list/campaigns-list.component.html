@@ -1,12 +1,10 @@
 <section>
-
     <div *ngIf="editForm; else elseBlock">
         <app-edit-form (editFormFalse)="editFormFalse()" [allCampaigns]="allCampaigns" [editedName]="editedName"
             [editedTown]="editedTown" [editedCampaignFund]="editedCampaignFund" [editedBidAmount]="editedBidAmount"
             [editedRadius]="editedRadius" [editedStatus]="editedStatus" [editedKeywords]="editedKeywords" [id]="id">
         </app-edit-form>
     </div>
-
     <ng-template #elseBlock>
         <h1 class="d-flex justify-content-center mb-5 mt-4 display-4">All Campaigns</h1>
         <div class="row">
