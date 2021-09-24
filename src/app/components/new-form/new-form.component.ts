@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-new-form',
   templateUrl: './new-form.component.html',
-  styleUrls: ['./new-form.component.css']
 })
 export class NewFormComponent {
   @Input() allCampaigns: CampaignInterface[] = [];
@@ -42,7 +41,7 @@ export class NewFormComponent {
   };
 
 
-  addCampaign(name: string, campaignFund: number, town: string, bidAmount: number, radius: number, status: boolean, keywords: string) {
+  addCampaign(name, campaignFund, town, bidAmount, radius, status, keywords) {
     this.allCampaigns.push({ id: uuidv4(), name, campaignFund, town, bidAmount, radius, status, keywords });
     window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));
 

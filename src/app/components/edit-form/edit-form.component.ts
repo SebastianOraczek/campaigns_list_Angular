@@ -4,34 +4,20 @@ import { CampaignInterface } from 'src/app/types/campaigns.interface';
 @Component({
   selector: 'app-edit-form',
   templateUrl: './edit-form.component.html',
-  styleUrls: ['./edit-form.component.css']
 })
 export class EditFormComponent {
   @Output() editFormFalse = new EventEmitter();
   @Input() allCampaigns: CampaignInterface[] = [];
+  @Input() id;
+  @Input() editedName;
+  @Input() editedTown;
+  @Input() editedCampaignFund;
+  @Input() editedBidAmount;
+  @Input() editedRadius;
+  @Input() editedStatus;
+  @Input() editedKeywords;
 
-  editedName: string = "";
-  editedTown: string = "";
-  editedCampaignFund: number = 0;
-  editedBidAmount: number = 0;
-  editedRadius: number = 0;
-  editedStatus: boolean = false;
-  editedKeywords: string = "";
-
-  // Setting initial value for states
-  ngOnInit(): void {
-    this.allCampaigns.map(campaign => {
-      this.editedName = campaign.name;
-      this.editedTown = campaign.town;
-      this.editedCampaignFund = campaign.campaignFund;
-      this.editedBidAmount = campaign.bidAmount;
-      this.editedRadius = campaign.radius;
-      this.editedStatus = campaign.status;
-      this.editedKeywords = campaign.keywords;
-    });
-  };
-
-  // Changing inputs data
+  // Setting data from inputs
   changeName(event: any) {
     this.editedName = event.target.value;
   };
@@ -47,25 +33,24 @@ export class EditFormComponent {
   changeRadius(event: any) {
     this.editedRadius = parseInt(event.target.value);
   };
-  changeKeywords(event: any) {
-    this.editedKeywords = event.target.value;
-  };
   changeStatus() {
     this.editedStatus = !this.editedStatus;
   };
+  changeKeywords(event: any) {
+    this.editedKeywords = event.target.value;
+  };
 
-  handleEdit(
-    editedName: string, editedCampaignFund: number, editedTown: string,
-    editedBidAmount: number, editedRadius: number, editedStatus: boolean, editedKeywords: string
-  ) {
+  handleEdit(id): void {
     this.allCampaigns.map(campaign => {
-      campaign.name = editedName;
-      campaign.town = editedTown;
-      campaign.campaignFund = editedCampaignFund;
-      campaign.bidAmount = editedBidAmount;
-      campaign.radius = editedRadius;
-      campaign.status = editedStatus;
-      campaign.keywords = editedKeywords;
+      if (campaign.id === id) {
+        campaign.name = this.editedName;
+        campaign.town = this.editedTown;
+        campaign.campaignFund = this.editedCampaignFund;
+        campaign.bidAmount = this.editedBidAmount;
+        campaign.radius = this.editedRadius;
+        campaign.status = this.editedStatus;
+        campaign.keywords = this.editedKeywords;
+      } else campaign;
     });
     window.localStorage.setItem("campaigns", JSON.stringify(this.allCampaigns));
     this.editFormFalse.emit();

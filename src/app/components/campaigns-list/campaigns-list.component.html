@@ -1,7 +1,10 @@
 <section>
 
     <div *ngIf="editForm; else elseBlock">
-        <app-edit-form (editFormFalse)="editFormFalse()" [allCampaigns]="allCampaigns"></app-edit-form>
+        <app-edit-form (editFormFalse)="editFormFalse()" [allCampaigns]="allCampaigns" [editedName]="editedName"
+            [editedTown]="editedTown" [editedCampaignFund]="editedCampaignFund" [editedBidAmount]="editedBidAmount"
+            [editedRadius]="editedRadius" [editedStatus]="editedStatus" [editedKeywords]="editedKeywords" [id]="id">
+        </app-edit-form>
     </div>
 
     <ng-template #elseBlock>
@@ -23,7 +26,8 @@
                             <div class="buttons">
                                 <button class="btn btn-danger"
                                     (click)="removeCampaign.emit(campaign.id)">Remove</button>
-                                <button class="btn btn-info text-white ms-2" (click)="editFormTrue()">Edit</button>
+                                <button class="btn btn-info text-white ms-2"
+                                    (click)="editFormTrue(campaign.id)">Edit</button>
                             </div>
                         </div>
                     </div>

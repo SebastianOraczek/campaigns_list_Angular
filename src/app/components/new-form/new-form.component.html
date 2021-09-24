@@ -62,14 +62,14 @@
                         </label>
                     </div>
                 </div>
-                <div>
-                    <button (click)="isFormActiveFalse.emit()" class="btn btn-primary">Cancel</button>
-                    <button (click)="addCampaign(name, campaignFund, town, bidAmount, radius, status, keywords)"
-                        class="btn btn-success ms-2">
-                        Add Campaign
-                    </button>
-                </div>
             </form>
+            <div>
+                <button (click)="isFormActiveFalse.emit()" class="btn btn-primary">Cancel</button>
+                <button (click)="addCampaign(name, campaignFund, town, bidAmount, radius, status, keywords)"
+                    class="btn btn-success ms-2">
+                    Add Campaign
+                </button>
+            </div>
         </div>
     </div>
 </section>
